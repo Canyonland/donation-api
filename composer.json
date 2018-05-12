@@ -1,0 +1,26 @@
+{
+    "name": "ocef/donation-api",
+    "description": "Laravel package for donation API endpoints.  Built on Laravel 5.6",
+    "authors": [
+        {
+            "name": "Haoyu Guo",
+            "email": "haoyu.guo@ocef.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ocef/donation-models": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "OCEF\\DonationAPI\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OCEF\\DonationAPI\\DonationAPIServiceProvider"
+            ]
+        }
+    }
+}
