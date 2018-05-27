@@ -30,5 +30,6 @@ class DonationAPIServiceProvider extends ServiceProvider
         $this->app->make('OCEF\DonationAPI\Controllers\MatchingGiftController');
         $this->app->make('OCEF\DonationAPI\Controllers\PaymentController');
         $this->app->make('OCEF\DonationAPI\Controllers\StakeholderController');
+        $this->app->make('OCEF\DonationAPI\Fake\FakeController');
     }
 }

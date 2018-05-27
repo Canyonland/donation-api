@@ -4,6 +4,7 @@ namespace OCEF\DonationAPI\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class APIController extends Controller
 {
@@ -20,6 +21,16 @@ class APIController extends Controller
     {
         $model = $this->model;
         $item = $model::find($id);
+        return response()->json($item);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $model = $this->model;
+        $item = $model::find($id);
+        if ($item) {
+            $item->update(Request::all());
+        }
         return response()->json($item);
     }
 

@@ -13,6 +13,26 @@ class PaymentController extends APIController
         $this->model = Payment::class;
     }
 
+    public function index()
+    {
+        $model = $this->model;
+        $withAccount = Input::get('withAccount');
+
+        $items = $model::whereRaw('1');
+        if ($withAccount) {
+            $items = $items->with('account');
+        }
+
+        return response()->json($items->get());
+    }
+
+    public function show($id)
+    {
+        $model = $this->model;
+        $item = $model::find($id);
+        $item->load('account');
+        return response()->json($item);
+    }
 
     public function store()
     {
